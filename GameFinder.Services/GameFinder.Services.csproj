@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddGame.cs" />
     <Compile Include="GameServices.cs" />
     <Compile Include="GameSystemServices.cs" />
     <Compile Include="GenreServices.cs" />
