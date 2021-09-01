@@ -35,5 +35,27 @@ namespace GameFinder.Services
                 return query.ToArray();
             }
         }
+
+        public IEnumerable<GameListItem> GetGameByTitle(string title)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Games
+                    .Single(e => e.Title == title);
+                yield return new GameListItem
+                {
+                    Id = entity.Id,
+                    Title = entity.Title,
+                    Description = entity.Description,
+                    Rating = entity.Rating,
+                    GameSystems = entity.GameSystems,
+                    Genres = entity.Genres,
+                    Price = entity.Price,
+                    MultiPlayer = entity.MultiPlayer,
+                };
+            }
+        }
     }
 }
