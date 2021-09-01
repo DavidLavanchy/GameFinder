@@ -8,5 +8,6 @@ namespace GameFinder.Services
 {
     public class GameServices
     {
+
     }
 }
