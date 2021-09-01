@@ -66,6 +66,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameFinder.Data\GameFinder.Data.csproj">
+      <Project>{EE34D771-9C3D-4322-B767-FB17F3484E69}</Project>
+      <Name>GameFinder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameFinder.Models\GameFinder.Models.csproj">
+      <Project>{E45F6431-7126-40EE-B247-4034DA8E6854}</Project>
+      <Name>GameFinder.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

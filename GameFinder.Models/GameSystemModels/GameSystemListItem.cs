@@ -14,7 +14,7 @@ namespace GameFinder.Models.GameSystemModels
         }
         public string SystemTitle
         {
-            get;
+            get; set;
         }
      }
 }
