@@ -9,6 +9,6 @@ namespace GameFinder.Models.GameSystemModels
     public class GameSystemDetail
     {
         public int Id { get; set; }
-        public string SystemTitle { get; }
+        public string SystemTitle { get; set; }
     }
 }
