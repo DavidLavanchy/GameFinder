@@ -16,25 +16,8 @@ namespace GameFinder.Data
         [Required]
         public string SystemTitle
         {
-            set
-            {
-                if (this.Id == 1)
-                {
-                    this.SystemTitle = "PlayStation";
-                }
-                if (this.Id == 2)
-                {
-                    this.SystemTitle = "Xbox";
-                }
-                if (this.Id == 3)
-                {
-                    this.SystemTitle = "PC";
-                }
-                if (this.Id == 4)
-                {
-                    this.SystemTitle = "Nintendo";
-                }
-            }
+            get;  set;
+
         }
 
         [ForeignKey(nameof(Game))]
