@@ -57,5 +57,20 @@ namespace GameFinder.Services
                 };
             }
         }
+
+        public bool DeleteGameById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Games
+                    .Single(e => id == e.Id);
+
+                ctx.Games.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
