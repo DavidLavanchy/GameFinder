@@ -12,6 +12,6 @@ namespace GameFinder.Models.GameSystemModels
         [Required]
         public int Id { get; set; }
         [Required]
-        public string SystemTitle { get; }
+        public string SystemTitle { get; set; }
     }
 }

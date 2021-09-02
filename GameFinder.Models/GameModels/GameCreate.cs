@@ -22,9 +22,9 @@ namespace GameFinder.Models.GameModels
         [Required]
         public string Rating { get; set; }
         [Required]
-        public List<GameSystem> GameSystems { get; set; }
+        public ICollection<GameSystem> GameSystems { get; set; }
         [Required]
-        public List<Genre> Genres { get; set; }
+        public ICollection<Genre> Genres { get; set; }
         public decimal Price { get; set; }
         public bool MultiPlayer { get; set; }
     }
