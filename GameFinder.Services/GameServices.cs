@@ -84,6 +84,7 @@ namespace GameFinder.Services
                     ctx
                     .Games
                     .Single(e => id == e.Id);
+
                 return new GameDetail
                 {
                     Id = entity.Id,
@@ -168,7 +169,8 @@ namespace GameFinder.Services
 
 
 
-        public IEnumerable<GameListItem> GetAllGames()
+
+    public IEnumerable<GameListItem> GetAllGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
