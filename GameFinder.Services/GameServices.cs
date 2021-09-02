@@ -11,6 +11,7 @@ namespace GameFinder.Services
 {
     public class GameServices
     {
+       
         public IEnumerable<GameListItem> GetGameByRating(string rating)
         {
             using (var ctx = new ApplicationDbContext())
@@ -35,6 +36,7 @@ namespace GameFinder.Services
                 return query.ToArray();
             }
         }
+
 
         public IEnumerable<GameListItem> GetGameByTitle(string title)
         {
@@ -82,11 +84,7 @@ namespace GameFinder.Services
                     ctx
                     .Games
                     .Single(e => id == e.Id);
-
-
-
-
-                return new GameDetail
+                   return new GameDetail
                 {
                     Id = entity.Id,
                     Description = entity.Description,
@@ -97,6 +95,205 @@ namespace GameFinder.Services
                     Price = entity.Price,
                     Rating = entity.Rating
                 };
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public bool AddGameToRepo(GameCreate model)
+        {
+            var entity =
+                new Game()
+                {
+                    Description = model.Description,
+                    GameSystems = model.GameSystems,
+                    Genres = model.Genres,
+                    Id = model.GameId,
+                    MultiPlayer = model.MultiPlayer,
+                    Price = model.Price,
+                    Rating = model.Rating,
+                    Title = model.Title
+                };
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Games.Add(entity);
+                return ctx.SaveChanges() == 1;
             }
         }
 
@@ -220,6 +417,7 @@ namespace GameFinder.Services
                         Id = e.Id,
                     });
                 return query.ToArray();
+
             }
         }
     }
