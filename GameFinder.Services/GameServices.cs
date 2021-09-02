@@ -58,7 +58,7 @@ namespace GameFinder.Services
             }
         }
 
- Delete-Game
+ 
         public bool DeleteGameById(int id)
 
         {
@@ -76,7 +76,6 @@ namespace GameFinder.Services
         
   
         public GameDetail GetGameById(int id)
-        master
         {
             using(var ctx = new ApplicationDbContext())
             {
@@ -84,9 +83,6 @@ namespace GameFinder.Services
                     ctx
                     .Games
                     .Single(e => id == e.Id);
-
-
-                
 
                 return new GameDetail
                 {
@@ -149,10 +145,10 @@ namespace GameFinder.Services
         }
 
 
-                }
+                
 
 
-        public IEnumerable<GameListItem> GetAllGames()
+    public IEnumerable<GameListItem> GetAllGames()
         {
             using(var ctx = new ApplicationDbContext())
             {
