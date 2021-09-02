@@ -16,50 +16,7 @@ namespace GameFinder.Data
         [Required]
         public string GenreType
         {
-            set
-            {
-                if (this.Id == 1)
-                {
-                    this.GenreType = "RPG";
-                }
-                if (this.Id == 2)
-                {
-                    this.GenreType = "MMO";
-                }
-                if (this.Id == 3)
-                {
-                    this.GenreType = "First-Person Shooter";
-                }
-                if (this.Id == 4)
-                {
-                    this.GenreType = "Sports";
-                }
-                if (this.Id == 5)
-                {
-                    this.GenreType = "Adventure";
-                }
-                if (this.Id == 6)
-                {
-                    this.GenreType = "Action";
-                }
-                if (this.Id == 7)
-                {
-                    this.GenreType = "Racing";
-                }
-                if (this.Id == 8)
-                {
-                    this.GenreType = "Strategy";
-                }
-                if (this.Id == 9)
-                {
-                    this.GenreType = "Racing";
-                }
-                if (this.Id == 10)
-                {
-                    this.GenreType = "Survival";
-                }
-            }
-
+            get;  set;
         }
         [Required]
         public string Description { get; set; }
