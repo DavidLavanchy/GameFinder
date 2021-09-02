@@ -11,6 +11,7 @@ namespace GameFinder.Services
 {
     public class GameServices
     {
+       
         public IEnumerable<GameListItem> GetGameByRating(string rating)
         {
             using (var ctx = new ApplicationDbContext())
@@ -36,6 +37,7 @@ namespace GameFinder.Services
             }
         }
 
+
         public IEnumerable<GameListItem> GetGameByTitle(string title)
         {
             using (var ctx = new ApplicationDbContext())
@@ -58,26 +60,25 @@ namespace GameFinder.Services
             }
         }
 
- 
         public bool DeleteGameById(int id)
 
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Games
                     .Single(e => id == e.Id);
-  
+
                 ctx.Games.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-        
-  
+
+
         public GameDetail GetGameById(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -98,9 +99,31 @@ namespace GameFinder.Services
             }
         }
 
+
+        public bool AddGameToRepo(GameCreate model)
+        {
+            var entity =
+                new Game()
+                {
+                    Description = model.Description,
+                    GameSystems = model.GameSystems,
+                    Genres = model.Genres,
+                    Id = model.GameId,
+                    MultiPlayer = model.MultiPlayer,
+                    Price = model.Price,
+                    Rating = model.Rating,
+                    Title = model.Title
+                };
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Games.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public IEnumerable<GameListItem> GetGamesWithinPriceRange(decimal minPrice, decimal maxprice)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -126,7 +149,7 @@ namespace GameFinder.Services
 
         public bool UpdateGame(GameEdit updatedGame)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -140,17 +163,16 @@ namespace GameFinder.Services
                 entity.Genres = updatedGame.Genres;
                 entity.GameSystems = updatedGame.GameSystems;
                 entity.MultiPlayer = updatedGame.MultiPlayer;
-              return ctx.SaveChanges() ==1;
+                return ctx.SaveChanges() == 1;
             }
         }
 
 
-                
 
 
     public IEnumerable<GameListItem> GetAllGames()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -176,7 +198,7 @@ namespace GameFinder.Services
 
         public IEnumerable<GameListItem> GetGamesByGenre(List<Genre> genres)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -201,7 +223,7 @@ namespace GameFinder.Services
 
         public IEnumerable<GameListItem> GetGamesByGameSystem(List<GameSystem> gameSystems)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
@@ -220,8 +242,9 @@ namespace GameFinder.Services
                         Id = e.Id,
                     });
                 return query.ToArray();
+
             }
         }
-
     }
 }
+
