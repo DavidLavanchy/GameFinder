@@ -1,4 +1,4 @@
-﻿using GameFinder.Data;
+using GameFinder.Data;
 using GameFinder.Models.GameModels;
 using GameFinder.Models.GameSystemModels;
 using System;
@@ -58,7 +58,9 @@ namespace GameFinder.Services
             }
         }
 
-        public GameDetail GetGameById(int id)
+ Delete-Game
+        public bool DeleteGameById(int id)
+
         {
             using(var ctx = new ApplicationDbContext())
             {
@@ -66,6 +68,25 @@ namespace GameFinder.Services
                     ctx
                     .Games
                     .Single(e => id == e.Id);
+  
+                ctx.Games.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        
+  
+        public GameDetail GetGameById(int id)
+        master
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Games
+                    .Single(e => id == e.Id);
+
+
+                
 
                 return new GameDetail
                 {
@@ -123,10 +144,14 @@ namespace GameFinder.Services
                 entity.Genres = updatedGame.Genres;
                 entity.GameSystems = updatedGame.GameSystems;
                 entity.MultiPlayer = updatedGame.MultiPlayer;
-
-                return ctx.SaveChanges() == 1;
+              return ctx.SaveChanges() ==1;
             }
         }
+
+
+                }
+
+
         public IEnumerable<GameListItem> GetAllGames()
         {
             using(var ctx = new ApplicationDbContext())
@@ -201,5 +226,6 @@ namespace GameFinder.Services
                 return query.ToArray();
             }
         }
+
     }
 }
