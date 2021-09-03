@@ -17,10 +17,10 @@ namespace GameFinder.Data
         public string Description { get; set; }
         [Required]
         public string Rating { get; set; }
-        [Required]
-        public ICollection<GameSystem> GameSystems { get; set; } = new List<GameSystem>();
-        [Required]
-        public ICollection<Genre> Genres { get; set; } = new List<Genre>();
+        
+        public List<GameSystem> GameSystems { get; set; }
+
+        public List<Genre> Genres { get; set; }
         public decimal Price { get; set; }
         public bool MultiPlayer { get; set; }
     }

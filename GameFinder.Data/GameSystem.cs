@@ -17,7 +17,6 @@ namespace GameFinder.Data
         public string SystemTitle
         {
             get;  set;
-
         }
 
         [ForeignKey(nameof(Game))]

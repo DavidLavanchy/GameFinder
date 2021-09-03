@@ -24,6 +24,7 @@ namespace GameFinder.Services
                 ctx.Genres.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
+
         }
 
         public GenreDetail GetGenreById(int id)
